@@ -102,11 +102,20 @@
 		}
 		
 		//show the selected album
+		var album = e.target.href.split('#')[1];
+		document.getElementById(album).classList.remove('hide');
+		
+		//change the pic to first image in album
+		var pic = document.querySelector('#pic');
+		var caption = document.getElementById('caption');
+		var firstPic = document.getElementById(album).querySelectorAll('a')[0];
+		pic.src = firstPic.href;
+		caption.firstChild.nodeValue = firstPic.title;
 	}
-	
 }
 
-window.onload = gallery.init;
+window.addEventListener('load',gallery.init);
+
 </script>
 </body>
 </html>
